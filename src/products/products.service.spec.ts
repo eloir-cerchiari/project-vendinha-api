@@ -1,6 +1,6 @@
 import { MongooseModule } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { create } from 'domain';
+
 import {
   closeInMongodConnection,
   rootMongooseTestModule,
@@ -11,13 +11,16 @@ import { ProductsService } from './products.service';
 describe('ProductsService', () => {
   let service: ProductsService;
   let productList: any[];
+  
   const mock = {
     name: 'BIS - Caixa 2',
     gtin: '7896019603430',
     size: '121g',
     color: undefined,
   };
+
   let productId = undefined;
+
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
